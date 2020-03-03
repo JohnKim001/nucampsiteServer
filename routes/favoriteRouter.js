@@ -107,7 +107,7 @@ favoriteRouter.route('/:campsiteId')
                 if (favorite) {
                     const i = favorite.campsites.indexOf(req.params.campsiteId)
                     if (i >= 0) {
-                        req.params.campsiteId.splice(req.params.campsiteID, 1);
+                        req.params.campsiteId.splice(req.params.campsiteId, 1);
                         favorite.save()
                             .then(response => {
                                 res.statusCode = 200;
@@ -117,7 +117,7 @@ favoriteRouter.route('/:campsiteId')
                             .catch(err => next(err));
                     }
                 } else {
-                    err = new Error(`Comment ${req.params.commentId} not found`);
+                    err = new Error(`Favorite ${req.params.campsiteId} not found`);
                     err.status = 404;
                     return next(err);
                 }
@@ -128,3 +128,4 @@ favoriteRouter.route('/:campsiteId')
 
 
     module.exports = favoriteRouter;
+
